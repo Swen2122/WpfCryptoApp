@@ -11,8 +11,8 @@ namespace WpfCryptoApp.ViewModels
 {
     internal class CoinViewModel : BaseViewModel
     {
-        private String _coins;
-        public String Coins
+        private List<Coin> _coins;
+        public List<Coin> Coins
         {
             get { return _coins; }
             set
