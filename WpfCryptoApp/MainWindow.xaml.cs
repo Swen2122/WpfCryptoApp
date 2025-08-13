@@ -23,6 +23,9 @@ namespace WpfCryptoApp
         public MainWindow()
         {
             InitializeComponent();
+            var viewModel = new ViewModels.CoinViewModel();
+            viewModel.LoadData();
+            this.DataContext = viewModel;
         }
     }
 }
