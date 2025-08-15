@@ -90,11 +90,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Models\ApiResponse.cs" />
-    <Compile Include="Models\Coin.cs" />
+    <Compile Include="Models\CoinCapAPI\CoinCapAsset.cs" />
+    <Compile Include="Models\CoinCapAPI\CoinCapData.cs" />
+    <Compile Include="Models\CoinMarketCap\ListingsLatest.cs" />
+    <Compile Include="Models\CoinMarketCap\Coin.cs" />
+    <Compile Include="Models\CoinMarketCap\Quote.cs" />
+    <Compile Include="Services\CoinCap API\CoinCapGetAsset.cs" />
     <Compile Include="Services\CoinMarketCapAPI.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\CoinCapViewModels\AssetViewModel.cs" />
     <Compile Include="ViewModels\CoinViewModel.cs" />
+    <Compile Include="ViewModels\CombineViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -126,6 +132,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="appdata.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

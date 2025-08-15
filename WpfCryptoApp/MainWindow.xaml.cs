@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfCryptoApp.ViewModels;
+using WpfCryptoApp.ViewModels.CoinCapViewModels;
 
 namespace WpfCryptoApp
 {
@@ -23,8 +25,11 @@ namespace WpfCryptoApp
         public MainWindow()
         {
             InitializeComponent();
-            var viewModel = new ViewModels.CoinViewModel();
+            var viewModel = new CoinViewModel();
+            var assetViewModel = new AssetViewModel();
+            var combinedViewModel = new CombineViewModel();
             viewModel.LoadData();
+            assetViewModel.LoadData("bitcoin");     
             this.DataContext = viewModel;
         }
     }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WpfCryptoApp.Models.CoinMarketCap;
 
 namespace WpfCryptoApp.Models
 {
@@ -16,15 +17,7 @@ namespace WpfCryptoApp.Models
         [JsonProperty("cmc_rank")]
         public string CmcRank { get; set; }
         [JsonProperty("quote")]
-        public Quote USD { get; set; }
-        public class Quote
-        {
-            public class USD
-            {
-                public decimal Price { get; set; }
-            }
-            public USD Usd { get; set; }
-        }
+        public Quote Quote { get; set; }
 
     }
 }

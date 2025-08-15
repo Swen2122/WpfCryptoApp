@@ -8,13 +8,13 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <ListView ItemsSource="{Binding Coins}">
+            <ListView ItemsSource="{Binding Asset.Data}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Rank" DisplayMemberBinding="{Binding CmcRank}" />
+                        <GridViewColumn Header="Rank" DisplayMemberBinding="{Binding Rank}" />
                         <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" />
                         <GridViewColumn Header="Symbol" DisplayMemberBinding="{Binding Symbol}" />
-                        <GridViewColumn Header="Price (USD)" DisplayMemberBinding="{Binding USD.Usd.Price}" />
+                        <GridViewColumn Header="Price (USD)" DisplayMemberBinding="{Binding PriceUsd}" />
                     </GridView>
                 </ListView.View>
             </ListView>

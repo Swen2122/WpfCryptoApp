@@ -24,7 +24,7 @@ namespace WpfCryptoApp.Services
                     Console.WriteLine("No data received from API.");
                     return null;
                 }
-                ApiResponse apiResponse = JsonConvert.DeserializeObject<ApiResponse>(response);
+                ListingsLatest apiResponse = JsonConvert.DeserializeObject<ListingsLatest>(response);
                 return apiResponse.Data;
             }
             catch (WebException ex)
@@ -35,12 +35,11 @@ namespace WpfCryptoApp.Services
         }
         private string MakeAPICall()
         {
-            var URL = new UriBuilder("https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=100&sort=market_cap&cryptocurrency_type=all&tag=all");
+            var URL = new UriBuilder("https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=10&sort=market_cap&cryptocurrency_type=all&tag=all");
 
             var client = new WebClient();
             client.Headers.Add("X-CMC_PRO_API_KEY", API_KEY);
             client.Headers.Add("Accepts", "application/json");
-            Console.WriteLine($"Making API call to: {URL}");
             return client.DownloadString(URL.ToString());
         }
     }
