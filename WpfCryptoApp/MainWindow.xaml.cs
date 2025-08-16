@@ -29,7 +29,7 @@ namespace WpfCryptoApp
             var assetViewModel = new AssetViewModel();
             var combinedViewModel = new CombineViewModel();
             viewModel.LoadData();
-            assetViewModel.LoadData("bitcoin");     
+            //assetViewModel.LoadData("bitcoin");     
             this.DataContext = viewModel;
         }
     }

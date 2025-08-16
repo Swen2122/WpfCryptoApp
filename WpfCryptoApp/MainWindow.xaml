@@ -7,17 +7,30 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <ListView ItemsSource="{Binding Asset.Data}">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="Rank" DisplayMemberBinding="{Binding Rank}" />
-                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" />
-                        <GridViewColumn Header="Symbol" DisplayMemberBinding="{Binding Symbol}" />
-                        <GridViewColumn Header="Price (USD)" DisplayMemberBinding="{Binding PriceUsd}" />
-                    </GridView>
-                </ListView.View>
-            </ListView>
-        </ScrollViewer>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="10*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <Border Background="#2f5cb6"/>
+        <Border Grid.Column ="1" Background="#1f3d7a"/>
+        <Border Grid.Row="1" Grid.ColumnSpan="2" Background="#152951"/>
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <ListView ItemsSource="{Binding Coins}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Rank" DisplayMemberBinding="{Binding CmcRank}" />
+                            <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" />
+                            <GridViewColumn Header="Symbol" DisplayMemberBinding="{Binding Symbol}" />
+                            <GridViewColumn Header="Price (USD)" DisplayMemberBinding="{Binding Quote.Usd.Price}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </ScrollViewer>
+        </StackPanel>
     </Grid>
 </Window>

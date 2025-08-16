@@ -9,7 +9,6 @@ using WpfCryptoApp.Models.CoinMarketCap;
 
 namespace WpfCryptoApp.Models
 {
-    //todo: fix this govnocode
     internal class Coin
     {
         public string Name { get; set; }
