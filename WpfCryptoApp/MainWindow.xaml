@@ -20,7 +20,7 @@
         <Border Grid.Row="1" Grid.ColumnSpan="2" Background="#152951"/>
         <StackPanel Grid.Column="1" Grid.Row="1">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <ListView ItemsSource="{Binding Coins}">
+                <ListView ItemsSource="{Binding Coins}" Margin="10">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Rank" DisplayMemberBinding="{Binding CmcRank}" />
@@ -32,5 +32,14 @@
                 </ListView>
             </ScrollViewer>
         </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="1" Margin="10">
+            <Button Content="Theme" Command="{Binding RefreshCommand}" Margin="5"/>
+            <Button Content="Info" Command="{Binding RefreshCommand}" Margin="5"/>
+            <Button Content="Refresh" Command="{Binding RefreshCommand}" Margin="5"/>
+            <Button Content="Refresh" Command="{Binding RefreshCommand}" Margin="5"/>
+        </StackPanel>
+        <Grid Grid.Column="1" Grid.Row="0">
+            <TextBox Text="{Binding SelectedCoin.Name}" FontSize="16" FontWeight="Bold" TextAlignment="Left"  VerticalContentAlignment="Center"/>
+        </Grid>
     </Grid>
 </Window>
