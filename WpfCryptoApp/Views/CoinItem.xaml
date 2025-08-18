@@ -9,6 +9,8 @@
       Title="CoinItem">
 
     <Grid>
-        
+        <ListView>
+            
+        </ListView>
     </Grid>
 </Page>

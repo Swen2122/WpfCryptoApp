@@ -1,0 +1,10 @@
+{
+  "MainWindow": {
+    "List": {
+      "Rank": "Rank",
+      "Name": "Name",
+      "Symbol": "Symbol",
+      "Price": "Price(USD)"
+    }
+  },
+}

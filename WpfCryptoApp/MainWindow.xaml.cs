@@ -26,11 +26,13 @@ namespace WpfCryptoApp
         {
             InitializeComponent();
             var viewModel = new CoinViewModel();
-            var assetViewModel = new AssetViewModel();
-            var combinedViewModel = new CombineViewModel();
-            viewModel.LoadData();
-            //assetViewModel.LoadData("bitcoin");     
-            this.DataContext = viewModel;
+            viewModel.LoadData();   
+            DataContext = new
+            {
+                TopCoins = viewModel,
+                Language = new LanguageViewModel(),
+            };
+            
         }
     }
 }
