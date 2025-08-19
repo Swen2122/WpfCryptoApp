@@ -4,8 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfCryptoApp"
+        xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
@@ -15,12 +17,13 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
+
         <Border Background="#2f5cb6"/>
         <Border Grid.Column ="1" Background="#1f3d7a"/>
         <Border Grid.Row="1" Grid.ColumnSpan="2" Background="#152951"/>
-        <StackPanel Grid.Column="1" Grid.Row="1" DataContext="{Binding TopCoins}">
+        <StackPanel Grid.Column="1" Grid.Row="1">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <ListView ItemsSource="{Binding Coins}" Margin="10">
+                <ListView ItemsSource="{Binding TopCoins.Coins}" Margin="10">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Rank" DisplayMemberBinding="{Binding CmcRank}" />
@@ -31,6 +34,7 @@
                     </ListView.View>
                 </ListView>
             </ScrollViewer>
+
         </StackPanel>
         <StackPanel Grid.Column="0" Grid.Row="1" Margin="10">
             <Button Content="Theme" Command="{Binding RefreshCommand}" Margin="5"/>
