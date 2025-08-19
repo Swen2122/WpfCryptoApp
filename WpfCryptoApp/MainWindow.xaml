@@ -21,7 +21,11 @@
         <Border Background="#2f5cb6"/>
         <Border Grid.Column ="1" Background="#1f3d7a"/>
         <Border Grid.Row="1" Grid.ColumnSpan="2" Background="#152951"/>
-        <StackPanel Grid.Column="1" Grid.Row="1">
+        <Grid Grid.Row="1" Grid.Column="1" Margin="10">
+            <lvc:CartesianChart Series="{Binding CandleStick.Series}"
+                        XAxes="{Binding CandleStick.XAxes}" />
+        </Grid>
+        <StackPanel Grid.Column="1" Grid.Row="0">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <ListView ItemsSource="{Binding TopCoins.Coins}" Margin="10">
                     <ListView.View>

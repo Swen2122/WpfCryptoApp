@@ -137,14 +137,13 @@
     <Compile Include="Models\CoinMarketCap\ListingsLatest.cs" />
     <Compile Include="Models\CoinMarketCap\Coin.cs" />
     <Compile Include="Models\CoinMarketCap\Quote.cs" />
-    <Compile Include="Models\TimestampConverter.cs" />
     <Compile Include="Services\CoinCap API\CoinCapGetAsset.cs" />
     <Compile Include="Services\CoinGecko\CoinGeckoApi.cs" />
     <Compile Include="Services\CoinMarketCapAPI.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\CoinCapViewModels\AssetViewModel.cs" />
     <Compile Include="ViewModels\CoinViewModel.cs" />
-    <Compile Include="ViewModels\Financial\CandlesticksViewModel.cs" />
+    <Compile Include="ViewModels\Financial\CandleSticksViewModel.cs" />
     <Compile Include="ViewModels\LanguageViewModel.cs" />
     <Compile Include="ViewModels\ChartsViewModel.cs" />
     <Compile Include="Views\CoinItem.xaml.cs">

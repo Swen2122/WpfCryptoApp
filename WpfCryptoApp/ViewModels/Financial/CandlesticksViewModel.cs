@@ -3,31 +3,33 @@ using LiveChartsCore.Defaults;
 using LiveChartsCore.SkiaSharpView;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Markup;
+using WpfCryptoApp.Models.CoinGecko;
+using WpfCryptoApp.Services.CoinGecko;
 
 namespace WpfCryptoApp.ViewModels.Financial
 {
-    internal class CandlesticksViewModel : BaseViewModel
+    internal class CandleSticksViewModel : BaseViewModel
     {
         private Axis[] xAxes;
         private ISeries[] series;
-
-        public CandlesticksViewModel()
+        public async Task LoadDataAsync(string id)
         {
-            var values = new FinancialPoint[]
-            {
-                new FinancialPoint(new DateTime(2021, 1, 1), 523, 500, 450, 400),
-                new FinancialPoint(new DateTime(2021, 1, 2), 500, 450, 425, 400),
-                new FinancialPoint(new DateTime(2021, 1, 3), 490, 425, 400, 380),
-                new FinancialPoint(new DateTime(2021, 1, 4), 420, 400, 420, 380),
-                new FinancialPoint(new DateTime(2021, 1, 5), 520, 420, 490, 400),
-                new FinancialPoint(new DateTime(2021, 1, 6), 580, 490, 560, 440)
-            };
+            CoinGeckoApi apiService = new CoinGeckoApi();
+            var priceHistory = await apiService.GetPriceHistoryOHLC(id, "usd", 7, 3);
+            if (priceHistory == null) return;
 
+            var values = priceHistory.Select(p => new FinancialPoint(
+                DateTimeOffset.FromUnixTimeMilliseconds(p.Timestamp).UtcDateTime,
+                p.Open, p.High, p.Low,  p.Close)).ToArray();
             Series = new ISeries[]
             {
-                new CandlesticksSeries<FinancialPoint>
+                new CandlesticksSeries<FinancialPointI>
                 {
-                    Values = values
+                     Values = values
+                    .Select(x => new FinancialPointI( x.Open, x.High, x.Low, x.Close))
+                    .ToArray()
                 }
             };
 
@@ -36,8 +38,9 @@ namespace WpfCryptoApp.ViewModels.Financial
                 new Axis
                 {
                     LabelsRotation = 15,
-                    Labeler = value => new DateTime((long)value).ToString("MMM dd"),
-                    UnitWidth = TimeSpan.FromDays(1).Ticks
+                    Labels = values
+                    .Select(x => x.Date.ToString("yyyy MMM dd"))
+                    .ToArray()
                 }
             };
         }

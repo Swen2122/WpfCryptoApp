@@ -27,10 +27,8 @@ namespace WpfCryptoApp.Views
         {
             InitializeComponent();
             var assetViewModel = new AssetViewModel();
-            var candleStickViewModel = new CandlesticksViewModel();
             DataContext = new
             {
-                CandleStick = candleStickViewModel,
                 Language = new LanguageViewModel(),
             };
         }

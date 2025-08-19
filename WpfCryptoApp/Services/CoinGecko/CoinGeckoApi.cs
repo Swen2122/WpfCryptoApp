@@ -34,15 +34,31 @@ namespace WpfCryptoApp.Services.CoinGecko
         {
             try
             {
-                var options = new RestClientOptions($"https://api.coingecko.com/api/v3/coins/{coinId}/ohlc?vs_currency={currency}&days={days}&precision=:{precision}");
+                var options = new RestClientOptions($"https://api.coingecko.com/api/v3/coins/{coinId}/ohlc?vs_currency={currency}&days={days}&precision={precision}");
                 var response = await MakeCall(options);
                 if (response == null || string.IsNullOrEmpty(response.Content))
                 {
                     Console.WriteLine("No data received from API.");
                     return null;
                 }
-                var apiResponse = JsonConvert.DeserializeObject<List<PriceHistoryOHLC>>(response.Content);
-                return apiResponse;
+
+                var raw = JsonConvert.DeserializeObject<List<List<object>>>(response.Content);
+                var result = new List<PriceHistoryOHLC>();
+                foreach (var item in raw)
+                {
+                    if (item.Count == 5)
+                    {
+                        result.Add(new PriceHistoryOHLC
+                        {
+                            Timestamp = Convert.ToInt64(item[0]),
+                            Open = Convert.ToDouble(item[1]),
+                            High = Convert.ToDouble(item[2]),
+                            Low = Convert.ToDouble(item[3]),
+                            Close = Convert.ToDouble(item[4])
+                        });
+                    }
+                }
+                return result;
             }
             catch (Exception ex)
             {
