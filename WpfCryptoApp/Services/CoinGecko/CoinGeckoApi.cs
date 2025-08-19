@@ -9,7 +9,7 @@ namespace WpfCryptoApp.Services.CoinGecko
 {
     internal class CoinGeckoApi
     {
-        private string API_KEY = "your_apiKey";
+        private string API_KEY = "CG-Key";
         public async Task<List<PriceHistory>> GetPriceHistory(string coinId, string currency, int days)
         {
             try
