@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfCryptoApp.ViewModels;
 using WpfCryptoApp.ViewModels.CoinCapViewModels;
+using WpfCryptoApp.ViewModels.Financial;
 
 namespace WpfCryptoApp.Views
 {
@@ -26,10 +27,10 @@ namespace WpfCryptoApp.Views
         {
             InitializeComponent();
             var assetViewModel = new AssetViewModel();
-            assetViewModel.LoadData("bitcoin");
+            var candleStickViewModel = new CandlesticksViewModel();
             DataContext = new
             {
-                CoinItem = assetViewModel,
+                CandleStick = candleStickViewModel,
                 Language = new LanguageViewModel(),
             };
         }

@@ -13,8 +13,6 @@ namespace WpfCryptoApp
             
             var viewModel = new CoinViewModel();
             viewModel.LoadData();
-            var candleStickViewModel = new CandlesticksViewModel();
-            
             DataContext = new
             {
                 TopCoins = viewModel,
