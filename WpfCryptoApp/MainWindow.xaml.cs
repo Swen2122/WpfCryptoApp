@@ -1,34 +1,40 @@
 ﻿using System;
 using System.Windows;
-using WpfCryptoApp.Models.CoinGecko;
+using System.Windows.Controls;
+using System.Windows.Input;
 using WpfCryptoApp.ViewModels;
-using WpfCryptoApp.ViewModels.CoinCapViewModels;
-using WpfCryptoApp.ViewModels.Financial;
+
 
 namespace WpfCryptoApp
 {
     public partial class MainWindow : Window
     {
+        public ICommand SearchCommand { get; private set; }
+
         public MainWindow()
         {
+            SearchCommand = new RelayCommand(o => GetCoinChart(), o => true);
+
             InitializeComponent();
-            
-            var viewModel = new CoinViewModel();
-            viewModel.LoadData();
-            var candleStick = new CandleSticksViewModel();
+   
+            App.MainFrame = TopCoinsFrame;
+
+            var navigationViewModel = new NavigationViewModel();
+            navigationViewModel.LoadData();
 
             DataContext = new
             {
-                TopCoins = viewModel,
                 Language = new LanguageViewModel(),
-                CandleStick = candleStick
+                SearchCommand,
+                Navigation = navigationViewModel
             };
-            LoadCandleData(candleStick);
+        }
 
-        }
-        private async void LoadCandleData(CandleSticksViewModel candleStick)
+        private void GetCoinChart()
         {
-            await candleStick.LoadDataAsync("bitcoin");
+            string coinName = SearchTextBox.Text;
+            App.MainFrame?.Navigate(new Views.CoinItem(coinName));
         }
+
     }
 }

@@ -1,5 +1,6 @@
-﻿
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003"><PropertyGroup xmlns="">  <UserSecretsId>1d7821d3-e12d-4f53-9505-d0abcdb18f72</UserSecretsId>
+﻿<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <UserSecretsId>1d7821d3-e12d-4f53-9505-d0abcdb18f72</UserSecretsId>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -177,8 +178,13 @@
     <Compile Include="ViewModels\Financial\CandleSticksViewModel.cs" />
     <Compile Include="ViewModels\LanguageViewModel.cs" />
     <Compile Include="ViewModels\ChartsViewModel.cs" />
+    <Compile Include="ViewModels\NavigationViewModel.cs" />
+    <Compile Include="ViewModels\RelayCommand.cs" />
     <Compile Include="Views\CoinItem.xaml.cs">
       <DependentUpon>CoinItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TopCoins.xaml.cs">
+      <DependentUpon>TopCoins.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -193,6 +199,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\CoinItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TopCoins.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

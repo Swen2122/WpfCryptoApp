@@ -21,25 +21,9 @@
         <Border Background="#2f5cb6"/>
         <Border Grid.Column ="1" Background="#1f3d7a"/>
         <Border Grid.Row="1" Grid.ColumnSpan="2" Background="#152951"/>
-        <Grid Grid.Row="1" Grid.Column="1" Margin="10">
-            <lvc:CartesianChart Series="{Binding CandleStick.Series}"
-                        XAxes="{Binding CandleStick.XAxes}" />
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Frame x:Name="TopCoinsFrame" NavigationUIVisibility="Hidden" />
         </Grid>
-        <StackPanel Grid.Column="1" Grid.Row="0">
-            <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <ListView ItemsSource="{Binding TopCoins.Coins}" Margin="10">
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn Header="Rank" DisplayMemberBinding="{Binding CmcRank}" />
-                            <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" />
-                            <GridViewColumn Header="Symbol" DisplayMemberBinding="{Binding Symbol}" />
-                            <GridViewColumn Header="Price (USD)" DisplayMemberBinding="{Binding Quote.Usd.Price}" />
-                        </GridView>
-                    </ListView.View>
-                </ListView>
-            </ScrollViewer>
-
-        </StackPanel>
         <StackPanel Grid.Column="0" Grid.Row="1" Margin="10">
             <Button Content="Theme" Command="{Binding RefreshCommand}" Margin="5"/>
             <Button Content="Info" Command="{Binding RefreshCommand}" Margin="5"/>
@@ -47,7 +31,8 @@
             <Button Content="Refresh" Command="{Binding RefreshCommand}" Margin="5"/>
         </StackPanel>
         <Grid Grid.Column="1" Grid.Row="0">
-            <TextBox Text="{Binding SelectedCoin.Name}" FontSize="16" FontWeight="Bold" TextAlignment="Left"  VerticalContentAlignment="Center"/>
+            <TextBox Name="SearchTextBox" Text="Enter coin id" FontSize="16" FontWeight="Bold" TextAlignment="Left"  VerticalContentAlignment="Center"/>
+            <Button Name="SearchButton" Content="Search" Command="{Binding SearchCommand}" Margin="5" HorizontalAlignment="Right"/>
         </Grid>
     </Grid>
 </Window>

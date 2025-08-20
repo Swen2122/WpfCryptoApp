@@ -40,7 +40,8 @@ namespace WpfCryptoApp.ViewModels.Financial
                     LabelsRotation = 15,
                     Labels = values
                     .Select(x => x.Date.ToString("yyyy MMM dd"))
-                    .ToArray()
+                    .ToArray(),
+                    UnitWidth = 0.6f,
                 }
             };
         }

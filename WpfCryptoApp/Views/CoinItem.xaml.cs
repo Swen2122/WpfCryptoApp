@@ -23,14 +23,28 @@ namespace WpfCryptoApp.Views
     /// </summary>
     public partial class CoinItem : Page
     {
-        public CoinItem(string CoinName)
+        public CoinItem(string coinName)
         {
             InitializeComponent();
-            var assetViewModel = new AssetViewModel();
+            var candleStick = new CandleSticksViewModel();
+            LoadCandleData(candleStick, coinName);
             DataContext = new
             {
                 Language = new LanguageViewModel(),
+                CandleStick = candleStick
             };
+        }
+        private async void LoadCandleData(CandleSticksViewModel candleStick, string coinId = "bitcoin")
+        {
+            try
+            {
+                await candleStick.LoadDataAsync(coinId);
+                System.Diagnostics.Debug.WriteLine($"Load finished. Series length = {candleStick.Series?.Length}");
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("LoadCandleData error: " + ex);
+            }
         }
 
     }

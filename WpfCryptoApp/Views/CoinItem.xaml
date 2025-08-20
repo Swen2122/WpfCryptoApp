@@ -10,18 +10,7 @@
       Title="CoinItem">
 
     <Grid>
-        <Grid.ColumnDefinitions>     
-        <ColumnDefinition Width="2*"/>
-        <ColumnDefinition Width="10*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="10*"/>
-        </Grid.RowDefinitions>
-        <Border Background="#2f5cb6"/>
-        <Border Grid.Column ="1" Background="#1f3d7a"/>
-        <Border Grid.Row="1" Grid.ColumnSpan="2" Background="#152951"/>
-        <Grid Grid.Column="1" Grid.Row="1">
+        <Grid>
             <lvc:CartesianChart Series="{Binding CandleStick.Series}" XAxes="{Binding CandleStick.XAxes}"/>
         </Grid>
     </Grid>
