@@ -156,6 +156,7 @@
     <Compile Include="Models\CoinCapAPI\CoinCapData.cs" />
     <Compile Include="Models\CoinGecko\CoinData.cs" />
     <Compile Include="Models\CoinGecko\CoinOHLC.cs" />
+    <Compile Include="Models\CoinGecko\SearchResponse.cs" />
     <Compile Include="Models\CoinGecko\ConvertedData.cs" />
     <Compile Include="Models\CoinGecko\Description.cs" />
     <Compile Include="Models\CoinGecko\ImageInfo.cs" />
@@ -173,13 +174,15 @@
     <Compile Include="Services\CoinGecko\CoinGeckoApi.cs" />
     <Compile Include="Services\CoinMarketCapAPI.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
-    <Compile Include="ViewModels\CoinCapViewModels\AssetViewModel.cs" />
+    <Compile Include="ViewModels\CoinDataViewModel.cs" />
     <Compile Include="ViewModels\CoinViewModel.cs" />
     <Compile Include="ViewModels\Financial\CandleSticksViewModel.cs" />
     <Compile Include="ViewModels\LanguageViewModel.cs" />
-    <Compile Include="ViewModels\ChartsViewModel.cs" />
     <Compile Include="ViewModels\NavigationViewModel.cs" />
     <Compile Include="ViewModels\RelayCommand.cs" />
+    <Compile Include="Views\CoinData.xaml.cs">
+      <DependentUpon>CoinData.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CoinItem.xaml.cs">
       <DependentUpon>CoinItem.xaml</DependentUpon>
     </Compile>
@@ -198,6 +201,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\CoinData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CoinItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
