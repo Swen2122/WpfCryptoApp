@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using WpfCryptoApp.Models;
 using WpfCryptoApp.Models.CoinCapAPI;
 
@@ -20,7 +21,7 @@ namespace WpfCryptoApp.Services.CoinCap_API
                 string response = MakeAPICall(assetId);
                 if (string.IsNullOrEmpty(response))
                 {
-                    Console.WriteLine("No data received from API.");
+                    MessageBox.Show("No data received from API.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     return null;
                 }
                 CoinCapAsset apiResponse = JsonConvert.DeserializeObject<CoinCapAsset>(response);
@@ -28,7 +29,7 @@ namespace WpfCryptoApp.Services.CoinCap_API
             }
             catch (WebException ex)
             {
-                Console.WriteLine($"An error occurred: {ex.Message}");
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return null;
             }
         }

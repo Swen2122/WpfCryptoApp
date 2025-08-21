@@ -1,7 +1,10 @@
 ﻿using LiveChartsCore;
 using LiveChartsCore.Defaults;
 using LiveChartsCore.SkiaSharpView;
+using LiveChartsCore.SkiaSharpView.Painting;
+using SkiaSharp;
 using System;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Markup;
@@ -25,8 +28,15 @@ namespace WpfCryptoApp.ViewModels.Financial
                 p.Open, p.High, p.Low,  p.Close)).ToArray();
             Series = new ISeries[]
             {
+
                 new CandlesticksSeries<FinancialPointI>
                 {
+                     /* Collor
+                     UpFill = new SolidColorPaint(SKColors.Blue),
+                     UpStroke = new SolidColorPaint(SKColors.CornflowerBlue) { StrokeThickness = 5 },
+                     DownFill = new SolidColorPaint(SKColors.Red),
+                     DownStroke = new SolidColorPaint(SKColors.Orange) { StrokeThickness = 5 },
+                     */
                      Values = values
                     .Select(x => new FinancialPointI( x.Open, x.High, x.Low, x.Close))
                     .ToArray()
@@ -41,7 +51,7 @@ namespace WpfCryptoApp.ViewModels.Financial
                     Labels = values
                     .Select(x => x.Date.ToString("yyyy MMM dd"))
                     .ToArray(),
-                    UnitWidth = 0.6f,
+                    UnitWidth = 0.6f
                 }
             };
         }
