@@ -1,39 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
 
 namespace WpfCryptoApp.Models.CoinGecko
 {
     internal class Ticker
     {
-        [JsonPropertyName("base")]
+        [JsonProperty("base")]
         public string Base { get; set; }
 
-        [JsonPropertyName("target")]
+        [JsonProperty("target")]
         public string Target { get; set; }
 
-        [JsonPropertyName("market")]
+        [JsonProperty("market")]
         public Market Market { get; set; }
 
-        [JsonPropertyName("last")]
-        public decimal Last { get; set; }
+        [JsonProperty("last")]
+        public decimal? Last { get; set; }
 
-        [JsonPropertyName("volume")]
-        public decimal Volume { get; set; }
+        [JsonProperty("volume")]
+        public decimal? Volume { get; set; }
 
-        [JsonPropertyName("converted_last")]
+        [JsonProperty("converted_last")]
         public ConvertedData ConvertedLast { get; set; }
 
-        [JsonPropertyName("converted_volume")]
+        [JsonProperty("converted_volume")]
         public ConvertedData ConvertedVolume { get; set; }
 
-        [JsonPropertyName("trade_url")]
+        [JsonProperty("trade_url")]
         public string TradeUrl { get; set; }
 
-        [JsonPropertyName("trust_score")]
+        [JsonProperty("trust_score")]
         public string TrustScore { get; set; }
     }
 }

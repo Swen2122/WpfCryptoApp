@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Globalization;
 using System.Windows.Controls;
 using WpfCryptoApp.ViewModels;
 using WpfCryptoApp.ViewModels.Financial;

@@ -1,21 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace WpfCryptoApp.Models.CoinGecko
 {
     internal class ImageInfo
     {
-        [JsonPropertyName("thumb")]
-        public string Thumb { get; set; }
+        [JsonProperty("thumb")]
+        public Uri Thumb { get; set; }
 
-        [JsonPropertyName("small")]
-        public string Small { get; set; }
+        [JsonProperty("small")]
+        public Uri Small { get; set; }
 
-        [JsonPropertyName("large")]
-        public string Large { get; set; }
+        [JsonProperty("large")]
+        public Uri Large { get; set; }
     }
 }

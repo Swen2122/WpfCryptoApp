@@ -1,19 +1,15 @@
-﻿using System;
+﻿using Newtonsoft.Json;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace WpfCryptoApp.Models.CoinGecko
 {
     internal class Coin
     {
-        [JsonPropertyName("id")]
+        [JsonProperty("id")]
         public string Id { get; set; }
-        [JsonPropertyName("symbol")]
+        [JsonProperty("symbol")]
         public string Symbol { get; set; }
-        [JsonPropertyName("name")]
+        [JsonProperty("name")]
         public string Name { get; set; }
     }
     internal class Root

@@ -1,21 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
 
 namespace WpfCryptoApp.Models.CoinGecko
 {
     internal class ConvertedData
     {
-        [JsonPropertyName("btc")]
+        [JsonProperty("btc")]
         public decimal Btc { get; set; }
 
-        [JsonPropertyName("eth")]
+        [JsonProperty("eth")]
         public decimal Eth { get; set; }
 
-        [JsonPropertyName("usd")]
+        [JsonProperty("usd")]
         public decimal Usd { get; set; }
     }
 }

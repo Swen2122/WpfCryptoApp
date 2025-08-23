@@ -23,8 +23,8 @@
                 Background="#ffffff" 
                 Margin="0,39,0,0" 
                 Grid.RowSpan="2"/>
-        
-        <Grid Grid.ColumnSpan="3" Margin="133,39,0,0" Grid.RowSpan="2">
+
+        <Grid Grid.Column="1" Grid.Row="1">
             <Frame x:Name="TopCoinsFrame" NavigationUIVisibility="Hidden" />
         </Grid>
         

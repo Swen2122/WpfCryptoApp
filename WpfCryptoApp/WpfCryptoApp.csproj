@@ -170,6 +170,8 @@
     <Compile Include="Models\CoinMarketCap\ListingsLatest.cs" />
     <Compile Include="Models\CoinMarketCap\Coin.cs" />
     <Compile Include="Models\CoinMarketCap\Quote.cs" />
+    <Compile Include="Models\TextItems\MarketItem.cs" />
+    <Compile Include="Models\TextItems\TextItem.cs" />
     <Compile Include="Services\CoinCap API\CoinCapGetAsset.cs" />
     <Compile Include="Services\CoinGecko\CoinGeckoApi.cs" />
     <Compile Include="Services\CoinMarketCapAPI.cs" />

@@ -62,16 +62,16 @@ namespace WpfCryptoApp.Services.CoinGecko
                 return null;
             }
         }
-        public async Task<List<CoinData>> GetCoinData(string rawId)
+        public async Task<CoinData> GetCoinData(string rawId)
         {
             try
             {
                 var id = await Search(rawId);
-                var options = new RestClientOptions($"https://api.coingecko.com/api/v3/coins/{id}?localization=false&tickers=true&market_data=true&community_data=false&developer_data=false&sparkline=true'");
+                var options = new RestClientOptions($"https://api.coingecko.com/api/v3/coins/{id}?localization=false&tickers=true&market_data=true&community_data=false&developer_data=false&sparkline=true");
                 var response = await MakeCall(options);
 
                 var apiResponse = JsonConvert.DeserializeObject<CoinData>(response.Content);
-                return new List<CoinData> { apiResponse };
+                return apiResponse;
             }
             catch (Exception ex)
             {

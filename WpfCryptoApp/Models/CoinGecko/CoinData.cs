@@ -1,43 +1,39 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
-using System.Windows.Shapes;
 
 namespace WpfCryptoApp.Models.CoinGecko
 {
     internal class CoinData
     {
-        [JsonPropertyName("id")]
+        [JsonProperty("id")]
         public string Id { get; set; }
 
-        [JsonPropertyName("symbol")]
+        [JsonProperty("symbol")]
         public string Symbol { get; set; }
 
-        [JsonPropertyName("name")]
+        [JsonProperty("name")]
         public string Name { get; set; }
 
-        [JsonPropertyName("description")]
+        [JsonProperty("description")]
         public Description Description { get; set; }
 
-        [JsonPropertyName("links")]
+        [JsonProperty("links")]
         public Links Links { get; set; }
 
-        [JsonPropertyName("image")]
+        [JsonProperty("image")]
         public ImageInfo Image { get; set; }
 
-        [JsonPropertyName("market_cap_rank")]
+        [JsonProperty("market_cap_rank")]
         public int MarketCapRank { get; set; }
 
-        [JsonPropertyName("market_data")]
+        [JsonProperty("market_data")]
         public MarketData MarketData { get; set; }
 
-        [JsonPropertyName("tickers")]
+        [JsonProperty("tickers")]
         public List<Ticker> Tickers { get; set; }
 
-        [JsonPropertyName("genesis_date")]
+        [JsonProperty("genesis_date")]
         public DateTime? GenesisDate { get; set; }
     }
 }
