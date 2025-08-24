@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using WpfCryptoApp.Services;
 using WpfCryptoApp.Models;
+using System.Threading.Tasks;
 
 namespace WpfCryptoApp.ViewModels
 {
-    internal class CoinViewModel : BaseViewModel
+    internal class TopCoinsViewModel : BaseViewModel
     {
         private List<Coin> _coins;
         public List<Coin> Coins
@@ -17,10 +18,10 @@ namespace WpfCryptoApp.ViewModels
             }
         }
 
-        public void LoadData() 
+        public async Task LoadData() 
         {
             var apiService = new CoinMarketCapAPI();
-            Coins = apiService.GetCryptoData();
+            Coins = await apiService.GetCryptoData();
         }
     }
 }

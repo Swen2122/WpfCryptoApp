@@ -95,12 +95,13 @@ namespace WpfCryptoApp.ViewModels
                         if (trustScore != "green") continue;
                         count++;
                         string marketName = ticker.Market != null ? ticker.Market.Name : "Unknown Market";
+                        string nameReplase = marketName.Replace(" ", "\n");
                         string tradeUrl = !string.IsNullOrEmpty(ticker.TradeUrl) ? ticker.TradeUrl : "N/A";
                         decimal? lastPrice = ticker.Last;
                         decimal? volume = ticker.Volume;
                         Markets.Add(new MarketItem
                         {
-                            Title = marketName,
+                            Title = nameReplase,
                             Text = $"Price: {lastPrice:C}\nVolume: {volume:N}",
                             Url = tradeUrl
                         });

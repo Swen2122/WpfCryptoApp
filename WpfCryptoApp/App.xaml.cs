@@ -11,8 +11,8 @@ namespace WpfCryptoApp
     /// </summary>
     public partial class App : Application
     {
-        public static Frame MainFrame { get; private set; }
-        public static Frame HomeFrame { get; private set; }
+        public static Frame MainFrame { get; private set;}
+        public static Frame HomeFrame { get; private set;}
 
         protected override void OnStartup(StartupEventArgs e)
         {

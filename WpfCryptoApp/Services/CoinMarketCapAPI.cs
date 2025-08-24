@@ -1,24 +1,26 @@
-﻿using RestSharp;
+﻿using Newtonsoft.Json;
 using System;
-using System.Net;
-using System.Threading.Tasks;
-using System.Web;
-using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
+using System.Security.Policy;
+using System.Threading.Tasks;
 using WpfCryptoApp.Models;
 
 
 namespace WpfCryptoApp.Services
 {
-    internal class CoinMarketCapAPI
+    internal class CoinMarketCapAPI : ApiBase
     {
         private string API_KEY = "b54bcf4d-1bca-4e8e-9a24-22ff2c3d462c";
+        private const string ApiKeyHeaderName = "X-CMC_PRO_API_KEY";
 
-        public List<Coin> GetCryptoData()
+        public async Task<List<Coin>> GetCryptoData()
         {
             try
             {
-                string response = MakeAPICall();
+                string url = "https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=10&sort=market_cap&cryptocurrency_type=all&tag=all";
+                var response = await MakeCall(url, API_KEY, ApiKeyHeaderName);
                 if (string.IsNullOrEmpty(response))
                 {
                     Console.WriteLine("No data received from API.");
@@ -32,15 +34,6 @@ namespace WpfCryptoApp.Services
                 Console.WriteLine($"An error occurred: {ex.Message}");
                 return null;
             }
-        }
-        private string MakeAPICall()
-        {
-            var URL = new UriBuilder("https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=10&sort=market_cap&cryptocurrency_type=all&tag=all");
-
-            var client = new WebClient();
-            client.Headers.Add("X-CMC_PRO_API_KEY", API_KEY);
-            client.Headers.Add("Accepts", "application/json");
-            return client.DownloadString(URL.ToString());
         }
     }
 }

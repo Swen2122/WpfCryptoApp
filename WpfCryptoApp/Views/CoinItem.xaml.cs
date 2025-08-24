@@ -18,7 +18,6 @@ namespace WpfCryptoApp.Views
             LoadCandleData(candleStick, coinName);
             DataContext = new
             {
-                Language = new LanguageViewModel(),
                 CandleStick = candleStick
             };
         }

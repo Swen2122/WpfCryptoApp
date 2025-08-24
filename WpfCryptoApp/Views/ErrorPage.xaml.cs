@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,30 +13,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WpfCryptoApp.ViewModels;
-using WpfCryptoApp.ViewModels.Financial;
 
 namespace WpfCryptoApp.Views
 {
     /// <summary>
-    /// Interaction logic for TopCoins.xaml
+    /// Interaction logic for ErrorPage.xaml
     /// </summary>
-    public partial class TopCoins : Page
+    public partial class ErrorPage : Page
     {
-        public TopCoins()
+        public ErrorPage(HttpRequestException msg)
         {
             InitializeComponent();
-            var viewModel = new TopCoinsViewModel();
-            LoadVMData(viewModel);
-
-            DataContext = new
-            {
-                TopCoins = viewModel,
-            };
-        }
-        private async void LoadVMData(TopCoinsViewModel viewModel)
-        {
-            await viewModel.LoadData();
+            var viewModel = new ViewModels.ErrorViewModel(msg);
+            DataContext = viewModel;
         }
     }
 }

@@ -11,15 +11,35 @@
     <Grid>
         <StackPanel Grid.Column="1" Grid.Row="1">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <ListView ItemsSource="{Binding TopCoins.Coins}" Margin="10">
+                <ListView ItemsSource="{Binding TopCoins.Coins}" Margin="10" 
+          BorderThickness="0" Background="Transparent">
                     <ListView.View>
                         <GridView>
+                            <GridView.ColumnHeaderContainerStyle>
+                                <Style TargetType="GridViewColumnHeader">
+                                    <Setter Property="Background" Value="Transparent"/>
+                                    <Setter Property="BorderThickness" Value="0"/>
+                                    <Setter Property="Padding" Value="10,5"/>
+                                    <Setter Property="FontWeight" Value="SemiBold"/>
+                                    <Setter Property="Foreground" Value="{StaticResource SecondaryTextColor}"/>
+                                </Style>
+                            </GridView.ColumnHeaderContainerStyle>
+
                             <GridViewColumn Header="Rank" DisplayMemberBinding="{Binding CmcRank}" />
-                            <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" />
+                            <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="150"/>
                             <GridViewColumn Header="Symbol" DisplayMemberBinding="{Binding Symbol}" />
-                            <GridViewColumn Header="Price (USD)" DisplayMemberBinding="{Binding Quote.Usd.Price}" />
+                            <GridViewColumn Header="Price (USD)" DisplayMemberBinding="{Binding Quote.Usd.Price, StringFormat={}{0:C}}" />
                         </GridView>
                     </ListView.View>
+
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Padding" Value="10,8"/>
+                            <Setter Property="BorderBrush" Value="{StaticResource BorderColor}"/>
+                            <Setter Property="BorderThickness" Value="0,0,0,1"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        </Style>
+                    </ListView.ItemContainerStyle>
                 </ListView>
             </ScrollViewer>
         </StackPanel>

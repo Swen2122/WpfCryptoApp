@@ -21,16 +21,14 @@ namespace WpfCryptoApp
             InitializeComponent();
 
             App.SetMainPage(TopCoinsFrame);
+            App.SetHomePage(TopCoinsFrame);
             GoToHomePage();
-            var navigationViewModel = new NavigationViewModel();
-            navigationViewModel.LoadData();
 
             DataContext = new
             {
-                Language = new LanguageViewModel(),
                 SearchCommand,
-                GetInfoCommand, 
-                Navigation = navigationViewModel
+                GetInfoCommand,
+                ReturnHomeCommand
             };
         }
 
