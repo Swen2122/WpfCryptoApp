@@ -3,7 +3,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 using WpfCryptoApp.ViewModels;
-using WpfCryptoApp.ViewModels.Financial;
 
 namespace WpfCryptoApp.Views
 {

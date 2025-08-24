@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Diagnostics.Eventing.Reader;
+﻿using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using System.Windows;
 using WpfCryptoApp.Models.CoinGecko;
 using WpfCryptoApp.Models.TextItems;
 using WpfCryptoApp.Services.CoinGecko;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace WpfCryptoApp.ViewModels
 {

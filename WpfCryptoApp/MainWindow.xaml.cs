@@ -1,6 +1,4 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows;
 using System.Windows.Input;
 using WpfCryptoApp.ViewModels;
 
@@ -31,7 +29,7 @@ namespace WpfCryptoApp
                 ReturnHomeCommand
             };
         }
-
+        //poor implementation of navigation, didn't figure out how to implement it well in MVVM
         private void GetCoinChart()
         {
             string coinName = SearchTextBox.Text;

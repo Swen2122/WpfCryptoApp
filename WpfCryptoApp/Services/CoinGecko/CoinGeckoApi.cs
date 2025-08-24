@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows;
 using WpfCryptoApp.Models.CoinGecko;
@@ -11,7 +10,7 @@ namespace WpfCryptoApp.Services.CoinGecko
 {
     internal class CoinGeckoApi : ApiBase
     {
-        private string API_KEY = "CG-key";
+        private string API_KEY = "CG-key"; // unsafe storage of the API key
         private const string ApiKeyHeaderName = "x-cg-demo-api-key";
 
         public async Task<List<PriceHistory>> GetPriceHistory(string rawId, string currency, int days)

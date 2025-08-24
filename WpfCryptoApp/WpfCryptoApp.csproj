@@ -92,8 +92,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Models\CoinCapAPI\CoinCapAsset.cs" />
-    <Compile Include="Models\CoinCapAPI\CoinCapData.cs" />
     <Compile Include="Models\CoinGecko\CoinData.cs" />
     <Compile Include="Models\CoinGecko\CoinOHLC.cs" />
     <Compile Include="Models\CoinGecko\SearchResponse.cs" />
@@ -185,8 +183,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="appdata.json" />
-    <None Include="Languege\ua.json" />
-    <None Include="Languege\eng.json" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
